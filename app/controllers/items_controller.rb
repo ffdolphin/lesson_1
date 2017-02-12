@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @list_id = params[:list_id] || 1
-    @items = List.find(@list_id).items
+    @items = List.find(@list_id).items.where(flag: false)
   end
 
   # GET /items/1
@@ -60,6 +60,13 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def done
+    id = params[:id]
+    Item.find(id).update(flag: true)
+    list_id = Item.find(id).list.id
+    redirect_to items_path(list_id: list_id), notice: 'Item was successfully done.'
   end
 
   private
