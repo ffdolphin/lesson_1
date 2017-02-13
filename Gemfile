@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'sinatra', '2.0.0beta2'
 
 gem 'devise'
+
+gem 'toastr-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
