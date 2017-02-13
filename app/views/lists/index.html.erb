@@ -23,4 +23,7 @@
 
 <br>
 
-<%= link_to 'New List', new_list_path %>
+<p><%= link_to 'New List', new_list_path %></p>
+<p><%= link_to 'ログイン', new_user_session_path %></p>
+<p><%= link_to 'ユーザー登録', new_user_registration_path %></p>
+<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
