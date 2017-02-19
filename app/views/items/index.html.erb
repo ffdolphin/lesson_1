@@ -17,7 +17,8 @@
       <tr>
           <td><%= item.desc %></td>
           <td><%= item.flag %></td>
-          <td><%= link_to '完了', done_path(id: item.id) %></td>
+          <td><%= link_to '新規登録', new_item_path(@list) %></td>
+          <td><%= link_to '完了', done_path(@list) %></td>
           <td><%= link_to 'Show', item %></td>
           <td><%= link_to 'Edit', edit_item_path(item) %></td>
           <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,5 +29,5 @@
 
 <br>
 
-<p><%= link_to 'ToDoの追加', new_item_path(list_id: @list_id) %></p>
+<p><%= link_to 'ToDoの追加', new_item_path(@list) %></p>
 <p><%= link_to 'List一覧へ', lists_path %></p>

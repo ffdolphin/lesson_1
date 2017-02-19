@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_list, only: [:index ,:create]
   # GET /items
   # GET /items.json
   def index
-    @list_id = params[:list_id] || 1
-    @items = List.find(@list_id).items.where(flag: false)
+    #@list = List.find(@list_id)
+    @items = @list.items.where(flag: false)
   end
 
   # GET /items/1
@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new(list_id: params[:list_id])
+    # list_idをparamsから受け取ってlist_idに渡してる
+    @item = Item.new(list_id: params[:id])
   end
 
   # GET /items/1/edit
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to items_path(list_id: item_params[:list_id]), notice: 'Item was successfully created.' }
+        format.html { redirect_to items_path(@list), notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -73,6 +74,10 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def set_list
+      @list = List.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
