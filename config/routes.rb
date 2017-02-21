@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :lists
   resources :items, except:[:index,:new]
 
-  get 'done' => 'items#done'
+  get 'done/:id', to: 'items#done', as: 'done'
+  # get 'done' => 'items#done'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   if Rails.env.development?

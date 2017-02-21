@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
     id = params[:id]
     Item.find(id).update(flag: true)
     list_id = Item.find(id).list.id
-    redirect_to items_path(list_id: list_id), notice: 'Item was successfully done.'
+    redirect_to items_path(id: list_id), notice: 'Item was successfully done.'
   end
 
   private
