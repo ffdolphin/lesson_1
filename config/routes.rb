@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'tags/index'
+
+  get 'tags/show'
+
+  get 'tags/new'
+
+  get 'tags/create'
+
+  get 'tags/edit'
+
+  get 'tags/update'
+
   root :to => "lists#index"
 
   devise_for :users
