@@ -1,34 +1,48 @@
 require 'test_helper'
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get tags_index_url
-    assert_response :success
+  setup do
+    @tag = tags(:one)
   end
 
-  test "should get show" do
-    get tags_show_url
+  test "should get index" do
+    get tags_url
     assert_response :success
   end
 
   test "should get new" do
-    get tags_new_url
+    get new_tag_url
     assert_response :success
   end
 
-  test "should get create" do
-    get tags_create_url
+  test "should create tag" do
+    assert_difference('Tag.count') do
+      post tags_url, params: { tag: {  } }
+    end
+
+    assert_redirected_to tag_url(Tag.last)
+  end
+
+  test "should show tag" do
+    get tag_url(@tag)
     assert_response :success
   end
 
   test "should get edit" do
-    get tags_edit_url
+    get edit_tag_url(@tag)
     assert_response :success
   end
 
-  test "should get update" do
-    get tags_update_url
-    assert_response :success
+  test "should update tag" do
+    patch tag_url(@tag), params: { tag: {  } }
+    assert_redirected_to tag_url(@tag)
   end
 
+  test "should destroy tag" do
+    assert_difference('Tag.count', -1) do
+      delete tag_url(@tag)
+    end
+
+    assert_redirected_to tags_url
+  end
 end

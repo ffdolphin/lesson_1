@@ -1,2 +1,5 @@
-<h1>Tags#new</h1>
-<p>Find me in app/views/tags/new.html.erb</p>
+<h1>New Tag</h1>
+
+<%= render 'form', tag: @tag %>
+
+<%= link_to 'Back', tags_path %>
