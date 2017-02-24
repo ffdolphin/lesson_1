@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'list/:id', to: 'items#create'
   resources :lists
   resources :items, except:[:index,:new]
+  resources :tags
 
   get 'done/:id', to: 'items#done', as: 'done'
   # get 'done' => 'items#done'
