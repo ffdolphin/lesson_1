@@ -5,5 +5,15 @@
   <%= @tag.name %>
 </p>
 
+<%= form_for(@tag) do |f| %>
+  <p>
+    <strong>Item:</strong>
+      <%= collection_check_boxes(:tag, :item_ids, Item.all, :id,:desc) do |t| %>
+        <%= t.label { t.check_box + t.text } %>
+      <% end %>
+    <%= f.submit "Itemを追加" %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
 <%= link_to 'Back', tags_path %>

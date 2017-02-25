@@ -21,7 +21,7 @@
       <%= collection_check_boxes(:item, :tag_ids, Tag.all, :id,:name) do |t| %>
         <%= t.label { t.check_box + t.text } %>
       <% end %>
-    <%= f.submit "Tagをつける", class: "btn btn-primary" %>
+    <%= f.submit "Tagをつける" %>
   </p>
 <% end %>
 

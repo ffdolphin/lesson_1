@@ -1,5 +1,5 @@
 module ApplicationHelper
   def hello_world
-    "HelloWorld"
+    %Q( HelloWorld)
   end
 end

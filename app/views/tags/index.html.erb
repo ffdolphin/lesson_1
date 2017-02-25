@@ -12,17 +12,10 @@
   <tbody>
     <% @tags.each do |tag| %>
       <tr>
-        <td><%= link_to tag.name, tags_path(tag) %></td>
+        <td><%= tag.name %></td>
         <td><%= link_to 'Show', tag %></td>
         <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
         <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Tag', new_tag_path %>
+<p><%= link_to 'Tagを作る', new_tag_path %></p>
+
+<p><%= link_to 'List 一覧へ', lists_path %></p>
