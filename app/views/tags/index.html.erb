@@ -19,6 +19,13 @@
       </tr>
     <% end %>
   </tbody>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br>

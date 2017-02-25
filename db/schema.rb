@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20170224074125) do
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_tags_on_item_id"
+    t.index ["tag_id"], name: "index_item_tags_on_tag_id"
   end
 
   create_table "items", force: :cascade do |t|

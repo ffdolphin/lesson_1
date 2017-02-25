@@ -1,10 +1,10 @@
 class CreateItemTags < ActiveRecord::Migration[5.0]
   def change
     create_table :item_tags do |t|
-      t.integer :item_id
-      t.integer :tag_id
+      t.references :item, index: true, foreign_key: true
+      t.references :tag, index: true, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

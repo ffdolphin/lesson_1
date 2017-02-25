@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :lists
   resources :items, except:[:index,:new]
   resources :tags
+  resources :item_tags, only: [:create, :destroy]
 
   get 'done/:id', to: 'items#done', as: 'done'
   # get 'done' => 'items#done'

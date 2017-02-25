@@ -12,8 +12,18 @@
 
 <p>
   <strong>List:</strong>
-  <%= @item.list %>
+  <%= @item.list.name %>
 </p>
 
+<%= form_for(@item) do |f| %>
+  <p>
+    <strong>Tag:</strong>
+      <%= collection_check_boxes(:item, :tag_ids, Tag.all, :id,:name) do |t| %>
+        <%= t.label { t.check_box + t.text } %>
+      <% end %>
+    <%= f.submit "Tagをつける", class: "btn btn-primary" %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Back', items_path(@item.list_id) %>
